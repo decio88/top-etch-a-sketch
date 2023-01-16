@@ -25,7 +25,8 @@ function showDrawing() {
   const boxes = document.querySelectorAll(".box");
   boxes.forEach((box) => {
     box.addEventListener("mouseover", function () {
-      this.classList.add("hovered");
+      color = colorGen();
+      this.style.backgroundColor = colorGen();
     });
     /*box.addEventListener("mouseout", function () {
     this.classList.remove("hovered");
@@ -56,4 +57,12 @@ function resetGrid() {
   while (container.firstChild) {
     container.removeChild(container.firstChild);
   }
+}
+
+function colorGen() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  let rgb = `rgb( ${r}, ${g}, ${b})`;
+  return rgb;
 }
