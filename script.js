@@ -25,12 +25,11 @@ function showDrawing() {
   const boxes = document.querySelectorAll(".box");
   boxes.forEach((box) => {
     box.addEventListener("mouseover", function () {
-      color = colorGen();
-      this.style.backgroundColor = colorGen();
+      let currentColor = this.style.backgroundColor;
+      console.log(currentColor);
+      let color = newColor(currentColor);
+      this.style.backgroundColor = color;
     });
-    /*box.addEventListener("mouseout", function () {
-    this.classList.remove("hovered");
-  });*/
   });
 }
 
@@ -65,4 +64,36 @@ function colorGen() {
   const b = Math.floor(Math.random() * 256);
   let rgb = `rgb( ${r}, ${g}, ${b})`;
   return rgb;
+}
+
+function newColor(color) {
+  let rgb;
+
+  if (color === "") {
+    rgb = colorGen();
+    return rgb;
+  }
+
+  let colorArr = color
+    .slice(color.indexOf("(") + 1, color.indexOf(")"))
+    .split(", ");
+
+  if (colorArr == [0, 0, 0]) {
+    return;
+  } else {
+    let r = darkenColor(+colorArr[0]);
+    let g = darkenColor(+colorArr[1]);
+    let b = darkenColor(+colorArr[2]);
+    rgb = `rgb( ${r}, ${g}, ${b})`;
+  }
+
+  return rgb;
+}
+
+function darkenColor(x) {
+  x = Math.round(x - x * 0.1);
+  if (x < 0) {
+    x = 0;
+  }
+  return x;
 }

@@ -21,8 +21,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 500px;
-  height: 500px;
+  width: 960px;
+  height: 960px;
 }
 
 .row {
@@ -33,12 +33,8 @@ body {
 }
 
 .box {
-  background-color: aquamarine;
+  background-color: white;
   flex: 1;
-}
-
-.hovered {
-  background-color: black;
 }
 
 .size {
