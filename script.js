@@ -1,5 +1,17 @@
-container = document.querySelector(".container");
+let container = document.querySelector(".container");
+
 boxGrid();
+
+const boxes = document.querySelectorAll(".box");
+
+boxes.forEach((box) => {
+  box.addEventListener("mouseover", function () {
+    this.classList.add("hovered");
+  });
+  box.addEventListener("mouseout", function () {
+    this.classList.remove("hovered");
+  });
+});
 
 function boxRow() {
   //create row of div with 16 boxes

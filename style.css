@@ -30,3 +30,7 @@ body {
   justify-content: center;
   height: 100vh;
 }
+
+.hovered {
+  background-color: black;
+}
